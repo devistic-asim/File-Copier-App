@@ -24,5 +24,10 @@ namespace File_Copier_App
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
