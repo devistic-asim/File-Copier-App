@@ -107,7 +107,7 @@ namespace FileCopyApp
 
 This guide provides a foundation for creating desktop applications. Customize the form design, add more functionality, and explore advanced features in Visual Studio.
 
-Happy coding!
+Happy coding 🙂!
 
 
 
