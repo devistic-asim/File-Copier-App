@@ -20,22 +20,18 @@ namespace File_Copier_App
             // Set the form's start position to CenterScreen
             this.StartPosition = FormStartPosition.CenterScreen;
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string sourceDirectory = txtSourceDirectory.Text;
             string targetDirectory = txtTargetDirectory.Text;
             string fileName = txtFileName.Text;
+
+            if (string.IsNullOrEmpty(sourceDirectory) || string.IsNullOrEmpty(sourceDirectory) || string.IsNullOrEmpty(sourceDirectory))
+            {
+                MessageBox.Show("Please fill all the fields.");
+                return;
+            }
 
             string sourceFilePath = Path.Combine(sourceDirectory, fileName);
             string targetFilePath = Path.Combine(targetDirectory, fileName);

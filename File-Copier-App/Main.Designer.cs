@@ -65,7 +65,7 @@ namespace File_Copier_App
             // groupBox2
             // 
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(14, 162);
+            this.groupBox2.Location = new System.Drawing.Point(14, 167);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(574, 2);
             this.groupBox2.TabIndex = 3;
@@ -81,24 +81,23 @@ namespace File_Copier_App
             this.label1.TabIndex = 2;
             this.label1.Text = "Source:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtSourceDirectory
             // 
             this.txtSourceDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSourceDirectory.Location = new System.Drawing.Point(121, 107);
+            this.txtSourceDirectory.Location = new System.Drawing.Point(121, 116);
             this.txtSourceDirectory.Multiline = true;
             this.txtSourceDirectory.Name = "txtSourceDirectory";
-            this.txtSourceDirectory.Size = new System.Drawing.Size(465, 42);
+            this.txtSourceDirectory.Size = new System.Drawing.Size(465, 38);
             this.txtSourceDirectory.TabIndex = 4;
             // 
             // txtTargetDirectory
             // 
             this.txtTargetDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTargetDirectory.Location = new System.Drawing.Point(122, 176);
+            this.txtTargetDirectory.Location = new System.Drawing.Point(121, 183);
             this.txtTargetDirectory.Multiline = true;
             this.txtTargetDirectory.Name = "txtTargetDirectory";
-            this.txtTargetDirectory.Size = new System.Drawing.Size(465, 42);
+            this.txtTargetDirectory.Size = new System.Drawing.Size(465, 38);
             this.txtTargetDirectory.TabIndex = 7;
             // 
             // label2
@@ -115,7 +114,7 @@ namespace File_Copier_App
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(457, 463);
+            this.btnSubmit.Location = new System.Drawing.Point(457, 449);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(129, 45);
             this.btnSubmit.TabIndex = 8;
@@ -126,7 +125,7 @@ namespace File_Copier_App
             // groupBox3
             // 
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox3.Location = new System.Drawing.Point(14, 231);
+            this.groupBox3.Location = new System.Drawing.Point(14, 237);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(574, 2);
             this.groupBox3.TabIndex = 3;
@@ -146,10 +145,10 @@ namespace File_Copier_App
             // txtFileName
             // 
             this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFileName.Location = new System.Drawing.Point(122, 245);
+            this.txtFileName.Location = new System.Drawing.Point(121, 254);
             this.txtFileName.Multiline = true;
             this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(465, 42);
+            this.txtFileName.Size = new System.Drawing.Size(465, 38);
             this.txtFileName.TabIndex = 7;
             // 
             // Main
@@ -170,7 +169,6 @@ namespace File_Copier_App
             this.Controls.Add(this.Heading);
             this.Name = "Main";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
