@@ -38,6 +38,8 @@ namespace File_Copier_App
             this.label2 = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkBoxOverride = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Heading
@@ -129,11 +131,36 @@ namespace File_Copier_App
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
+            // checkBoxOverride
+            // 
+            this.checkBoxOverride.Checked = true;
+            this.checkBoxOverride.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxOverride.Location = new System.Drawing.Point(121, 247);
+            this.checkBoxOverride.Name = "checkBoxOverride";
+            this.checkBoxOverride.Size = new System.Drawing.Size(300, 40);
+            this.checkBoxOverride.TabIndex = 9;
+            this.checkBoxOverride.Text = "(check the box if you want to override the files. Othervise a copy of file will b" +
+    "e save)";
+            this.checkBoxOverride.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(18, 253);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 22);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Override:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // CopyAllFiles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 520);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.checkBoxOverride);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtTargetDirectory);
             this.Controls.Add(this.label2);
@@ -161,6 +188,8 @@ namespace File_Copier_App
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox checkBoxOverride;
+        private System.Windows.Forms.Label label3;
     }
 }
 

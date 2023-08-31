@@ -42,7 +42,30 @@ namespace File_Copier_App
                 {
                     string fileName = Path.GetFileName(file);
                     string targetPath = Path.Combine(targetDirectory, fileName);
-                    File.Copy(file, targetPath, true); // Set overwrite to true to replace existing files
+
+                    bool IsOveride = checkBoxOverride.Checked;
+
+                    if (IsOveride)
+                    {
+                        File.Copy(file, targetPath, true); // Set overwrite to true to replace existing files
+                    }
+                    else
+                    {
+                        // Check if the file already exists in the target directory
+                        if (File.Exists(targetPath))
+                        {
+                            // Generate a new file name with a numbering scheme
+                            int count = 1;
+                            string newFileName;
+                            do
+                            {
+                                newFileName = $"{Path.GetFileNameWithoutExtension(fileName)}_{count++}{Path.GetExtension(fileName)}";
+                                targetPath = Path.Combine(targetDirectory, newFileName);
+                            } while (File.Exists(targetPath));
+                        }
+
+                        File.Copy(file, targetPath); // Copy the file
+                    }
                 }
 
                 MessageBox.Show("Files copied successfully!");
@@ -52,5 +75,6 @@ namespace File_Copier_App
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
     }
 }
