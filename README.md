@@ -11,9 +11,8 @@ This guide provides step-by-step instructions for creating a desktop application
   - [Step 1: Create a New Project](#step-1-create-a-new-project)
   - [Step 2: Design the Form](#step-2-design-the-form)
   - [Step 3: Writing Code](#step-3-writing-code)
-  - [Step 4: Configure ComboBoxes](#step-4-configure-comboboxes)
-  - [Step 5: Build and Run](#step-5-build-and-run)
-  - [Step 6: Test the Application](#step-6-test-the-application)
+  - [Step 4: Build and Run](#step-5-build-and-run)
+  - [Step 5: Test the Application](#step-6-test-the-application)
 - [Customization and Beyond](#customization-and-beyond)
 
 ## Introduction
@@ -44,7 +43,7 @@ This guide walks you through the process of creating a desktop application using
 1. In the Solution Explorer, right-click on your project.
 2. Select "Add" > "Windows Form."
 3. Double-click the newly added form (Form1.cs) to open the designer.
-4. Drag and drop controls (TextBoxes, ComboBoxes, Button) from the Toolbox onto the form.
+4. Drag and drop controls (TextBoxes, Checkbox, Button) from the Toolbox onto the form.
 5. Customize the control names and properties as needed.
 
 ### Step 3: Writing Code
@@ -56,51 +55,87 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace FileCopyApp
+namespace File_Copier_App
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
-        }
 
+            // Set the form's start position to CenterScreen
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+       
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string sourceDirectory = txtSourceDirectory.Text;
             string targetDirectory = txtTargetDirectory.Text;
-            string fileName = txtFileName.Text;
 
-            string sourceFilePath = Path.Combine(sourceDirectory, fileName);
-            string targetFilePath = Path.Combine(targetDirectory, fileName);
+            if (string.IsNullOrEmpty(sourceDirectory) || string.IsNullOrEmpty(sourceDirectory) || string.IsNullOrEmpty(sourceDirectory))
+            {
+                MessageBox.Show("Please fill all the fields.");
+                return;
+            }
 
             try
             {
-                File.Copy(sourceFilePath, targetFilePath, true);
-                MessageBox.Show("File copied successfully!");
+                // Get the list of files in the source directory
+                string[] files = Directory.GetFiles(sourceDirectory);
+
+                // Copy each file to the target directory
+                foreach (string file in files)
+                {
+                    string fileName = Path.GetFileName(file);
+                    string targetPath = Path.Combine(targetDirectory, fileName);
+
+                    bool IsOveride = checkBoxOverride.Checked;
+
+                    if (IsOveride)
+                    {
+                        File.Copy(file, targetPath, true); // Set overwrite to true to replace existing files
+                    }
+                    else
+                    {
+                        // Check if the file already exists in the target directory
+                        if (File.Exists(targetPath))
+                        {
+                            // Generate a new file name with a numbering scheme
+                            int count = 1;
+                            string newFileName;
+                            do
+                            {
+                                newFileName = $"{Path.GetFileNameWithoutExtension(fileName)}_{count++}{Path.GetExtension(fileName)}";
+                                targetPath = Path.Combine(targetDirectory, newFileName);
+                            } while (File.Exists(targetPath));
+                        }
+
+                        File.Copy(file, targetPath); // Copy the file
+                    }
+                }
+
+                MessageBox.Show("Files copied successfully!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
     }
 }
+
 ```
 
-### Step 4: Configure ComboBoxes
-
-1. Populate ComboBoxes with values (in the constructor or Load event) to provide user choices.
-
-### Step 5: Build and Run
+### Step 4: Build and Run
 
 1. Build the solution (Ctrl + Shift + B).
 2. Run the application (F5).
 
-### Step 6: Test the Application
+### Step 5: Test the Application
 
 1. Enter source directory, target directory, and file name in the TextBoxes.
-2. Choose values from the ComboBoxes.
+2. Choose values from the Checkboxes.
 3. Click "Submit" to copy the file.
 
 ## Customization and Beyond
