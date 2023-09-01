@@ -17,7 +17,8 @@ namespace File_Copier_App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Main()); // single file coppier
-            Application.Run(new CopyAllFiles()); // all files coppier
+            //Application.Run(new CopyAllFiles()); // all files coppier
+            Application.Run(new TabForm()); // Tab Form
         }
     }
 }

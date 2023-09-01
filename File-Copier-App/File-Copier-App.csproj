@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TabForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TabForm.Designer.cs">
+      <DependentUpon>TabForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CopyAllFiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="TabForm.resx">
+      <DependentUpon>TabForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CopyAllFiles.resx">
       <DependentUpon>CopyAllFiles.cs</DependentUpon>
     </EmbeddedResource>
